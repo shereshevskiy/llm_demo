@@ -31,7 +31,7 @@ model.print_trainable_parameters()
 
 # Подготовка данных
 # Загружаем данные
-data = load_dataset("json", data_files="data.jsonl")["train"]
+data = load_dataset("json", data_files="data/data.jsonl")["train"]
 
 # Разделяем данные на тренировочные и тестовые
 train_test_split = data.train_test_split(test_size=0.2)
