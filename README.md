@@ -86,14 +86,14 @@ python main.py
 
 ### **Структура проекта**
 
-llm_demo/
-├── README.md             # Описание проекта
-├── requirements.txt      # Зависимости (кроме PyTorch)
-├── install_pytorch.sh    # Установка PyTorch
-├── main.py               # Основной код
-├── .env.example          # Пример конфигурационного файла
-├── data/                 # Данные проекта
-├── fine_tuned_model/     # Выходная папка для модели
+llm_demo/   
+├── README.md             # Описание проекта   
+├── requirements.txt      # Зависимости (кроме PyTorch)   
+├── install_pytorch.sh    # Установка PyTorch   
+├── main.py               # Основной код   
+├── .env.example          # Пример конфигурационного файла   
+├── data/                 # Данные проекта   
+├── fine_tuned_model/     # Выходная папка для модели   
 
 ### **Пример данных**
 
