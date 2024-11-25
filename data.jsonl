@@ -1,0 +1,30 @@
+{"instruction": "Translate to French", "input": "Good morning!", "output": "Bonjour!"}
+{"instruction": "Summarize", "input": "Artificial intelligence is revolutionizing many industries, from healthcare to finance.", "output": "AI is transforming industries."}
+{"instruction": "Generate a greeting", "input": "", "output": "Hello! How can I assist you today?"}
+{"instruction": "Translate to Spanish", "input": "How are you?", "output": "¿Cómo estás?"}
+{"instruction": "Summarize", "input": "Climate change is causing extreme weather patterns worldwide, affecting millions of lives.", "output": "Climate change leads to extreme weather globally."}
+{"instruction": "Provide an example of a polite email", "input": "Requesting a meeting with a colleague", "output": "Subject: Request for Meeting\n\nDear [Name],\n\nI hope this message finds you well. I would like to request a meeting to discuss [topic]. Please let me know your availability.\n\nBest regards,\n[Your Name]"}
+{"instruction": "Translate to German", "input": "I love programming.", "output": "Ich liebe das Programmieren."}
+{"instruction": "Summarize", "input": "The recent advancements in technology have significantly improved communication methods, making them faster and more efficient.", "output": "Technology has enhanced communication."}
+{"instruction": "Explain", "input": "What is machine learning?", "output": "Machine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without being explicitly programmed."}
+{"instruction": "Translate to French", "input": "Thank you for your help.", "output": "Merci pour votre aide."}
+{"instruction": "Summarize", "input": "Digital marketing strategies have evolved significantly, allowing businesses to reach a larger audience.", "output": "Digital marketing helps businesses reach more people."}
+{"instruction": "Generate a story", "input": "A curious cat exploring a new neighborhood", "output": "Once upon a time, a curious cat named Whiskers decided to explore a new neighborhood. He discovered friendly dogs, a hidden garden, and made new friends along the way."}
+{"instruction": "Translate to Russian", "input": "Where is the train station?", "output": "Где находится вокзал?"}
+{"instruction": "Explain", "input": "What is blockchain technology?", "output": "Blockchain is a decentralized digital ledger that records transactions across many computers securely and transparently."}
+{"instruction": "Summarize", "input": "The company reported significant growth this quarter, driven by new product launches and strong sales performance.", "output": "The company saw strong growth due to new products and sales."}
+{"instruction": "Generate a motivational quote", "input": "", "output": "Success is not final, failure is not fatal: It is the courage to continue that counts."}
+{"instruction": "Translate to Spanish", "input": "I am learning programming.", "output": "Estoy aprendiendo programación."}
+{"instruction": "Summarize", "input": "Renewable energy sources like solar and wind power are becoming more popular as they are sustainable and eco-friendly.", "output": "Renewable energy is sustainable and eco-friendly."}
+{"instruction": "Provide a coding example", "input": "Write a Python function to calculate the factorial of a number.", "output": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)"}
+{"instruction": "Translate to French", "input": "Have a nice day!", "output": "Bonne journée!"}
+{"instruction": "Summarize", "input": "Exercise improves physical and mental health, reducing stress and increasing overall well-being.", "output": "Exercise enhances physical and mental health."}
+{"instruction": "Explain", "input": "What is the Internet of Things (IoT)?", "output": "The Internet of Things refers to interconnected devices that communicate and share data over the internet, enhancing automation and efficiency."}
+{"instruction": "Generate a recipe", "input": "Simple pancake recipe", "output": "Ingredients: 1 cup flour, 1 cup milk, 1 egg, 1 tbsp sugar, 1 tsp baking powder. Mix ingredients, pour batter into a hot pan, cook until golden."}
+{"instruction": "Translate to German", "input": "Can you help me?", "output": "Können Sie mir helfen?"}
+{"instruction": "Summarize", "input": "Reading books regularly enhances vocabulary, improves focus, and stimulates imagination.", "output": "Reading improves vocabulary and imagination."}
+{"instruction": "Generate a poem", "input": "A peaceful evening", "output": "The sun sets low, the skies turn red,\nA gentle breeze, the day has fled.\nThe world grows calm, the stars align,\nA peaceful evening, truly divine."}
+{"instruction": "Translate to French", "input": "What time is it?", "output": "Quelle heure est-il?"}
+{"instruction": "Explain", "input": "What is artificial intelligence?", "output": "Artificial intelligence is the simulation of human intelligence in machines, enabling them to perform tasks that typically require human intelligence."}
+{"instruction": "Summarize", "input": "Globalization has led to increased cultural exchange, economic integration, and technological advancement.", "output": "Globalization enhances cultural exchange and economic integration."}
+{"instruction": "Translate to Spanish", "input": "See you tomorrow!", "output": "¡Hasta mañana!"}
