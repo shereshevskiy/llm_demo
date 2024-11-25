@@ -1,0 +1,77 @@
+# Системные файлы macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.metadata_never_index
+.noindex
+.Trashes
+._*
+.Spotlight-V100
+.fseventsd
+
+# Файлы виртуального окружения
+venv/
+.env/
+*.env
+*.venv
+
+# Кеши и временные файлы Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.log
+
+# Файлы Jupyter Notebook
+.ipynb_checkpoints/
+
+# Логи и дампы
+*.log
+*.pid
+*.gz
+*.tgz
+
+# Артефакты и временные файлы
+*.bak
+*.backup
+*.swp
+*.swo
+*.tmp
+*.old
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Конфигурации Python пакетов
+*.egg-info/
+.eggs/
+*.lock
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Кеши
+.cache/
+*.pytest_cache/
+
+# Бинарные файлы
+*.exe
+*.dll
+*.so
+*.dylib
+*.o
+*.a
+*.out
+*.class
+*.jar
+*.war
+
+# Файлы Jupyter Notebook с выходными данными (если не хотите их версионировать)
+*.ipynb
+
+# Docker (если используется)
+.dockerignore
