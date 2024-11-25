@@ -10,7 +10,7 @@ device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 print("Using device:", device)
 
 # Загрузка модели
-model_name = "meta-llama/Llama-2-7b-hf"
+model_name = "facebook/opt-2.7b"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
@@ -30,17 +30,38 @@ model = get_peft_model(model, config)
 model.print_trainable_parameters()
 
 # Подготовка данных
-data = load_dataset("json", data_files="data.jsonl")
+# Загружаем данные
+data = load_dataset("json", data_files="data.jsonl")["train"]
 
+# Разделяем данные на тренировочные и тестовые
+train_test_split = data.train_test_split(test_size=0.2)
+
+# Функция для обработки данных
 def preprocess_data(examples):
+    # Создаём input_text из instruction и input
+    inputs = [
+        f"Instruction: {instruction} Input: {input_text}" 
+        for instruction, input_text in zip(examples["instruction"], examples["input"])
+    ]
+
+    # Токенизация input_text
+    tokenized_inputs = tokenizer(inputs, truncation=True, padding="max_length", max_length=128)
+
+    # Токенизация labels из output
+    with tokenizer.as_target_tokenizer():
+        tokenized_labels = tokenizer(examples["output"], truncation=True, padding="max_length", max_length=128)
+
+    # Возвращаем токенизированные данные
     return {
-        "input_text": [
-            f"Instruction: {ex['instruction']} Input: {ex['input']}" for ex in examples
-        ],
-        "labels": [ex["output"] for ex in examples],
+        "input_ids": tokenized_inputs["input_ids"],
+        "attention_mask": tokenized_inputs["attention_mask"],
+        "labels": tokenized_labels["input_ids"]
     }
 
-tokenized_data = data.map(preprocess_data, batched=True)
+# Применяем обработку
+train_dataset = train_test_split["train"].map(preprocess_data, batched=True)
+eval_dataset = train_test_split["test"].map(preprocess_data, batched=True)
+
 
 # Параметры обучения
 training_args = TrainingArguments(
@@ -61,7 +82,8 @@ training_args = TrainingArguments(
 trainer = Trainer(
     model=model,
     args=training_args,
-    train_dataset=tokenized_data["train"],
+    train_dataset=train_dataset,
+    eval_dataset=eval_dataset,
     tokenizer=tokenizer,
 )
 
