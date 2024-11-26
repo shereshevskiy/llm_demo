@@ -100,7 +100,8 @@ llm_demo/
 Данные для обучения хранятся в папке **data** в формате JSONL. Пример файла:
 
 ```
-{"instruction": "Translate to French", "input": "Hello, world!", "output": "Bonjour, le monde!"}{"instruction": "Summarize", "input": "AI is transforming industries.", "output": "AI revolutionizes industries."}
+{"instruction": "Translate to French", "input": "Hello, world!", "output": "Bonjour, le monde!"}
+{"instruction": "Summarize", "input": "AI is transforming industries.", "output": "AI revolutionizes industries."}
 ```
 
 ### **Зависимости**
