@@ -44,7 +44,7 @@ source llm_env/bin/activate
 1. Убедитесь, что скрипт **install_pytorch.sh** имеет права на выполнение,
 2. Здесь оптимизированно для работы на процессорах Apple M1/M2,
 
-**Вместо можно выполнить**
+**Вместо этого можно выполнить**
 
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
@@ -108,7 +108,7 @@ llm_demo/
 
 #### **Установка PyTorch**
 
-PyTorch устанавливается через отдельный скрипт **install_pytorch.sh** с указанием оптимизированного индекса или с помощью кода (сделайте это **до** установки зависимостей из.txt):
+PyTorch устанавливается через отдельный скрипт **install_pytorch.sh** с указанием оптимизированного индекса или с помощью следующей команды (сделайте это **до** установки зависимостей из requirements.txt):
 
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
