@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  llm_demo:
+    build:
+      context: .
+      dockerfile: dockerfile
+    volumes:
+      - ./fine_tuned_model:/app/fine_tuned_model  # Монтируем папку output на хосте в контейнер
+    environment:
+      - OUTPUT_DIR=/app/fine_tuned_model  # Передаём переменную окружения для результата
+    command: ["python", "main.py"]  # Команда для запуска

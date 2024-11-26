@@ -1,5 +1,7 @@
 """LLM fine tuning demo."""
 
+import os
+
 import torch
 from datasets import load_dataset
 from peft import LoraConfig, TaskType, get_peft_model
@@ -88,5 +90,10 @@ trainer = Trainer(
 )
 
 trainer.train()
-model.save_pretrained("./fine_tuned_model")
-tokenizer.save_pretrained("./fine_tuned_model")
+
+# Получаем путь из переменной окружения
+output_dir = os.getenv("OUTPUT_DIR", "./fine_tuned_model")  # Если переменная не задана, используется "./fine_tuned_model"
+os.makedirs(output_dir, exist_ok=True)
+
+model.save_pretrained(output_dir)
+tokenizer.save_pretrained(output_dir)
