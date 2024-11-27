@@ -162,7 +162,7 @@ docker compose up --build
 Чтобы остановить и удалить контейнер, выполните:
 
 ```
-docker-compose down
+docker compose down
 ```
 
 ### **6.**	**Проверка результатов**
