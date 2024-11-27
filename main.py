@@ -11,8 +11,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingA
 device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 print("Using device:", device)
 
+# Подготовка папки для сохранения результатов
+output_base_path = "./fine_tuned_model"
+output_dir = os.getenv("OUTPUT_DIR", output_base_path)  # Если переменная не задана, используется output_base_path
+os.makedirs(output_dir, exist_ok=True)
+
 # Загрузка модели
-model_name = "facebook/opt-2.7b"
+model_name = "facebook/opt-2.7b"  # взяли модель, для загрузки которой не нужно регаться
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
@@ -67,7 +72,7 @@ eval_dataset = train_test_split["test"].map(preprocess_data, batched=True)
 
 # Параметры обучения
 training_args = TrainingArguments(
-    output_dir="./fine_tuned_model",
+    output_dir=output_dir,
     per_device_train_batch_size=1,  # Маленький батч
     gradient_accumulation_steps=8,  # Накопление градиентов
     learning_rate=2e-4,
@@ -91,9 +96,6 @@ trainer = Trainer(
 
 trainer.train()
 
-# Получаем путь из переменной окружения
-output_dir = os.getenv("OUTPUT_DIR", "./fine_tuned_model")  # Если переменная не задана, используется "./fine_tuned_model"
-os.makedirs(output_dir, exist_ok=True)
-
+# Сохраняем результаты
 model.save_pretrained(output_dir)
 tokenizer.save_pretrained(output_dir)
