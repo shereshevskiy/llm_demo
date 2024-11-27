@@ -1,4 +1,6 @@
-"""LLM fine tuning demo."""
+"""LLM fine tuning demo.
+Код оптимизирован для Apple M1 Pro 16Gb.
+"""
 
 import os
 
