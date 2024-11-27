@@ -86,17 +86,17 @@ python main.py
 
 ### **Структура проекта**
 
-llm_demo/    
-├── README.md                   # Описание проекта    
-├── docker-compose.yml      # Конфигурация Docker Compose    
-├── dockerfile                        # Dockerfile для создания образа    
-├── fine_tuned_model/          # Папка для сохранения результатов (монтируется на хосте)    
-├── requirements.txt             # Зависимости (кроме PyTorch)    
-├── install_pytorch.sh           # Установка PyTorch    
-├── main.py                          # Основной код    
-├── .env.example                  # Пример конфигурационного файла    
-├── data/                               # Данные проекта    
-├── fine_tuned_model/          # Выходная папка для модели    
+llm_demo/
+├── README.md                   # Описание проекта
+├── docker-compose.yml      # Конфигурация Docker Compose
+├── dockerfile                        # Dockerfile для создания образа
+├── fine_tuned_model/          # Папка для сохранения результатов (монтируется на хосте)
+├── requirements.txt             # Зависимости (кроме PyTorch)
+├── install_pytorch.sh           # Установка PyTorch
+├── main.py                          # Основной код
+├── .env.example                  # Пример конфигурационного файла
+├── data/                               # Данные проекта
+├── fine_tuned_model/          # Выходная папка для модели
 
 ### **Пример данных**
 
@@ -141,7 +141,7 @@ accelerate>=0.21.0
 В корне проекта выполните команду:
 
 ```
-docker-compose up --build
+docker compose up --build
 ```
 
 Эта команда:
