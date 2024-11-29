@@ -1,127 +1,166 @@
-# **LLM Fine-Tuning Demo**
+# ****LLM Fine-Tuning Demo****
 
-Этот проект демонстрирует процесс файн-тюнинга больших языковых моделей (LLM) на Mac с процессорами M1/M2, включая использование PyTorch с поддержкой MPS (Metal Performance Shaders).
+This project demonstrates the process of fine-tuning large language models (LLMs) on Macs with M1/M2 processors, including the use of PyTorch with MPS (Metal Performance Shaders) support.
 
-## **Описание проекта**
+## ****Project Description****
 
-Проект предназначен для демонстрации файн-тюнинга open-source моделей, таких как LLaMA или Mistral. Он включает настройку среды, загрузку данных, процесс обучения с использованием метода LoRA, и тестирование результатов.
+The project is designed to showcase the fine-tuning of open-source models, such as LLaMA or Mistral. It includes environment setup, data loading, the training process using the LoRA method, and testing of the results.
 
-В проекте также представлена версия кода с оптимизацией вычислений при использовании библиотеки DeepSpeed. 
+The project also features an optimized version of the code using the DeepSpeed library.
 
-Примечание: На Mac с процессором M1 версия кода с DeepSpeed не запускается, поскольку на Mac не поддерживаются некоторые критичные для этого тюнинга команды DeepSpeed
+Note: On Macs with M1 processors, the DeepSpeed-optimized code cannot run due to the lack of support for some critical DeepSpeed commands on Mac.
 
 ---
 
-## **Установка**
+## **Installation**
 
-Для воспроизведения проекта выполните следующие шаги:
+To replicate the project, follow these steps:
 
-### **1. Клонируйте репозиторий**
+### **1. Clone the repository**
 
-```
+```bash
 git clone https://github.com/shereshevskiy/llm_demo.git
 cd llm_demo
 ```
 
-### **2. Создайте виртуальное окружение**
+### **2. Create a virtual environment**
 
 ```
 python -m venv llm_env
-```
-
-```
 source llm_env/bin/activate
 ```
 
-**Примечание:** используйте Python >=3.10 (здесь 3.10.12)
+**Note:** Use Python >= 3.10 (e.g., 3.10.12).
 
-### **3. Установите PyTorch**
+**3. Install PyTorch**
 
-Установите PyTorch
+Install PyTorch:
 
 ```
 ./install_pytorch.sh
 ```
 
-**Примечание** :
+**Note:**
 
-1. Убедитесь, что скрипт **install_pytorch.sh** имеет права на выполнение,
-2. Здесь оптимизированно для работы на процессорах Apple M1/M2,
+    **1.**	Ensure that the script **install_pytorch.sh** has execution permissions.   
+    **2.**	The script is optimized for use on Apple M1/M2 processors.   
 
-**Вместо этого можно выполнить**
+
+**Alternatively, you can run:**
 
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 ```
 
-### **4. Установите остальные зависимости**
+### **4. Install other dependencies**
 
 ```
 pip install -r requirements.txt
 ```
 
-**Проверка среды**
+**Environment Check**
 
-После установки выполните следующую команду, чтобы убедиться, что PyTorch настроен правильно:
+After installation, run the following command to ensure PyTorch is properly set up:
 
 ```
 python -c "import torch; print(torch.backends.mps.is_available())"
 ```
 
-Если вывод **True**, PyTorch поддерживает ускорение через MPS на вашем устройстве.
+If the output is  **True** , PyTorch supports MPS acceleration on your device.
 
-## **Запуск проекта**
 
-### **Настройка**
+## **Running the Project**
 
-Если проект требует конфигурации, например настройку конфигурационных файлов (файла на базе шаблона .env.example и тп) - сделайте это.
 
-В данном демо проекте пока этого не требуется.
+### **Setup**
 
-### **Запуск обучения**
 
-Для запуска основного скрипта обучения выполните:
+If the project requires configuration, such as editing configuration files (e.g., based on a **.env.example** template), please do so.
+
+
+This demo project does not currently require configuration.
+
+
+### **Starting Training**
+
+
+To start the main training script, run:
 
 ```
 python main.py
 ```
 
-Результаты обучения будут сохранены в папке **fine_tuned_model/**.
+The training results will be saved in the **fine_tuned_model/** folder.
 
-### **Структура проекта**
+
+### **Project Structure**
+
+
 
 llm_demo/
-├── README.md                   # Описание проекта
-├── docker-compose.yml      # Конфигурация Docker Compose
-├── dockerfile                        # Dockerfile для создания образа
-├── fine_tuned_model/          # Папка для сохранения результатов (монтируется на хосте)
-├── requirements.txt             # Зависимости (кроме PyTorch)
-├── install_pytorch.sh           # Установка PyTorch
-├── main.py                          # Основной код
-├── .env.example                  # Пример конфигурационного файла
-├── data/                               # Данные проекта
-├── fine_tuned_model/          # Выходная папка для модели
 
-### **Пример данных**
+├── README.md   # Project description
+├── docker-compose.yml # Docker Compose configuration
+├── dockerfile # Dockerfile for building the image
+├── fine_tuned_model/  # Folder for saving results (mounted to the host)
+├── requirements.txt # Dependencies (excluding PyTorch)
+├── install_pytorch.sh # PyTorch installation script
+├── main.py  # Main code
+├── .env.example # Example configuration file
+├── data/  # Project data
+├── fine_tuned_model/  # Output folder for the model
 
-Данные для обучения хранятся в папке **data** в формате JSONL. Пример файла:
+
+
+
+
+### **Example Data**
+
+
+
+
+
+Training data is stored in the **data** folder in JSONL format. Example file:
+
+
+
 
 ```
 {"instruction": "Translate to French", "input": "Hello, world!", "output": "Bonjour, le monde!"}
 {"instruction": "Summarize", "input": "AI is transforming industries.", "output": "AI revolutionizes industries."}
 ```
 
-### **Зависимости**
 
-#### **Установка PyTorch**
 
-PyTorch устанавливается через отдельный скрипт **install_pytorch.sh** с указанием оптимизированного индекса или с помощью следующей команды (сделайте это **до** установки зависимостей из requirements.txt):
+
+### **Dependencies**
+
+
+
+
+
+#### **Installing PyTorch**
+
+
+
+
+
+PyTorch is installed via a separate script **install_pytorch.sh** with an optimized index or using the following command (this must be done **before** installing dependencies from **requirements.txt**):
+
+
+
 
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 ```
 
-#### **Основные зависимости**
+
+
+
+#### **Main Dependencies**
+
+
+
 
 ```
 transformers>=4.33.0
@@ -130,52 +169,131 @@ peft>=0.4.0
 accelerate>=0.21.0
 ```
 
-## **Запуск через Docker Compose**
 
-### **1.**	**Убедитесь, что у вас установлен Docker и Docker Compose**
 
-Если Docker и Docker Compose ещё не установлены, следуйте инструкциям для вашей операционной системы:
 
-**•**	[Установка Docker](https://docs.docker.com/get-docker/)
+## **Running with Docker Compose**
 
-**•**	[Установка Docker Compose](https://docs.docker.com/compose/install/)
 
-### **2.**	**Сборка и запуск контейнера**
 
-В корне проекта выполните команду:
+
+
+### **1. Ensure Docker and Docker Compose are installed**
+
+
+
+
+
+If Docker and Docker Compose are not installed, follow the instructions for your operating system:
+
+
+
+
+
+    **•** [Install Docker](https://docs.docker.com/get-docker/)
+
+
+    **•** [Install Docker Compose](https://docs.docker.com/compose/install/)
+
+
+
+
+
+### **2. Build and run the container**
+
+
+
+
+
+From the project root, run the following command:
+
+
+
 
 ```
 docker compose up --build
 ```
 
-Эта команда:
 
-* Соберёт Docker-образ на основе **dockerfile**.
-* Запустит контейнер с монтированием папки для сохранения результатов.
 
-### **3.**	**Сохранение результатов**
 
-Результаты работы (модель, логи и т.д.) будут сохранены в папке **./fine_tuned_model** на вашем хосте. Эта папка монтируется в контейнер по адресу **/app/fine_tuned_model**.
+This command:
 
-### **4.**	**Просмотр логов**
 
-Логи работы приложения будут отображаться в терминале. Если вы хотите остановить приложение, нажмите **Ctrl+C**.
+    **•** Builds the Docker image based on the  **dockerfile** .
 
-### **5.**	**Остановка контейнера**
 
-Чтобы остановить и удалить контейнер, выполните:
+    **•** Runs the container with folder mounting for saving results.
+
+
+
+
+
+### **3. Save results**
+
+
+
+
+
+The results (model, logs, etc.) will be saved in the **./fine_tuned_model** folder on your host machine. This folder is mounted in the container at  **/app/fine_tuned_model** .
+
+
+
+
+
+### **4. View logs**
+
+
+
+
+
+Application logs will be displayed in the terminal. To stop the application, press  **Ctrl+C** .
+
+
+
+
+
+### **5. Stop the container**
+
+
+
+
+
+To stop and remove the container, run:
+
+
+
 
 ```
 docker compose down
 ```
 
-### **6.**	**Проверка результатов**
 
-После завершения работы контейнера проверьте папку **fine_tuned_model** в корне проекта. Там должны появиться:
 
-* Сохранённые файлы модели.
-* Логи работы приложения (если они предусмотрены).
 
-## **Контакт**
+### **6. Check results**
 
-Если у вас возникли вопросы или предложения, пишите на [d.shereshevskiy@gmail.com](mailto:d.shereshevskiy@gmail.com).
+
+
+
+
+After the container finishes, check the **fine_tuned_model** folder in the project root. You should find:
+
+
+    **•** Saved model files.
+
+
+    **•** Application logs (if enabled).
+
+
+
+
+
+## **Contact**
+
+
+
+
+
+If you have any questions or suggestions, feel free to reach out at [d.shereshevskiy@gmail.com](mailto:d.shereshevskiy@gmail.com).
+```
