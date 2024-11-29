@@ -42,9 +42,8 @@ Install PyTorch:
 
 **Note:**
 
-    **1.**	Ensure that the script **install_pytorch.sh** has execution permissions.   
-    **2.**	The script is optimized for use on Apple M1/M2 processors.   
-
+* Ensure that the script **install_pytorch.sh** has execution permissions.
+* The script is optimized for use on Apple M1/M2 processors.
 
 **Alternatively, you can run:**
 
@@ -68,21 +67,15 @@ python -c "import torch; print(torch.backends.mps.is_available())"
 
 If the output is  **True** , PyTorch supports MPS acceleration on your device.
 
-
 ## **Running the Project**
-
 
 ### **Setup**
 
-
 If the project requires configuration, such as editing configuration files (e.g., based on a **.env.example** template), please do so.
-
 
 This demo project does not currently require configuration.
 
-
 ### **Starting Training**
-
 
 To start the main training script, run:
 
@@ -92,10 +85,7 @@ python main.py
 
 The training results will be saved in the **fine_tuned_model/** folder.
 
-
 ### **Project Structure**
-
-
 
 llm_demo/
 
@@ -110,57 +100,26 @@ llm_demo/
 ├── data/  # Project data
 ├── fine_tuned_model/  # Output folder for the model
 
-
-
-
-
 ### **Example Data**
 
-
-
-
-
 Training data is stored in the **data** folder in JSONL format. Example file:
-
-
-
 
 ```
 {"instruction": "Translate to French", "input": "Hello, world!", "output": "Bonjour, le monde!"}
 {"instruction": "Summarize", "input": "AI is transforming industries.", "output": "AI revolutionizes industries."}
 ```
 
-
-
-
 ### **Dependencies**
-
-
-
-
 
 #### **Installing PyTorch**
 
-
-
-
-
 PyTorch is installed via a separate script **install_pytorch.sh** with an optimized index or using the following command (this must be done **before** installing dependencies from **requirements.txt**):
-
-
-
 
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 ```
 
-
-
-
 #### **Main Dependencies**
-
-
-
 
 ```
 transformers>=4.33.0
@@ -169,131 +128,53 @@ peft>=0.4.0
 accelerate>=0.21.0
 ```
 
-
-
-
 ## **Running with Docker Compose**
-
-
-
-
 
 ### **1. Ensure Docker and Docker Compose are installed**
 
-
-
-
-
 If Docker and Docker Compose are not installed, follow the instructions for your operating system:
 
+* [Install Docker](https://docs.docker.com/get-docker/)
 
-
-
-
-    **•** [Install Docker](https://docs.docker.com/get-docker/)
-
-
-    **•** [Install Docker Compose](https://docs.docker.com/compose/install/)
-
-
-
-
+* [Install Docker Compose](https://docs.docker.com/compose/install/)
 
 ### **2. Build and run the container**
 
-
-
-
-
 From the project root, run the following command:
-
-
-
 
 ```
 docker compose up --build
 ```
 
-
-
-
 This command:
 
+ **Builds the Docker image based on thedockerfile .**
 
-    **•** Builds the Docker image based on the  **dockerfile** .
-
-
-    **•** Runs the container with folder mounting for saving results.
-
-
-
-
+    Runs the container with folder mounting for saving results.
 
 ### **3. Save results**
 
-
-
-
-
 The results (model, logs, etc.) will be saved in the **./fine_tuned_model** folder on your host machine. This folder is mounted in the container at  **/app/fine_tuned_model** .
-
-
-
-
 
 ### **4. View logs**
 
-
-
-
-
 Application logs will be displayed in the terminal. To stop the application, press  **Ctrl+C** .
-
-
-
-
 
 ### **5. Stop the container**
 
-
-
-
-
 To stop and remove the container, run:
-
-
-
 
 ```
 docker compose down
 ```
 
-
-
-
 ### **6. Check results**
-
-
-
-
 
 After the container finishes, check the **fine_tuned_model** folder in the project root. You should find:
 
-
-    **•** Saved model files.
-
-
-    **•** Application logs (if enabled).
-
-
-
-
+* Saved model files.
+* Application logs (if enabled).
 
 ## **Contact**
 
-
-
-
-
 If you have any questions or suggestions, feel free to reach out at [d.shereshevskiy@gmail.com](mailto:d.shereshevskiy@gmail.com).
-```
