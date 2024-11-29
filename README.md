@@ -87,19 +87,19 @@ The training results will be saved in the **fine_tuned_model/** folder.
 
 ### **Project Structure**
 
-llm_demo/
-
-├── README.md   # Project description
-├── docker-compose.yml # Docker Compose configuration
-├── dockerfile # Dockerfile for building the image
-├── fine_tuned_model/  # Folder for saving results (mounted to the host)
-├── requirements.txt # Dependencies (excluding PyTorch)
-├── install_pytorch.sh # PyTorch installation script
-├── main.py  # Main code
-├── .env.example # Example configuration file
-├── data/  # Project data
-├── fine_tuned_model/  # Output folder for the model
-
+llm_demo/   
+   
+├── README.md   # Project description   
+├── docker-compose.yml # Docker Compose configuration   
+├── dockerfile # Dockerfile for building the image   
+├── fine_tuned_model/  # Folder for saving results (mounted to the host)   
+├── requirements.txt # Dependencies (excluding PyTorch)   
+├── install_pytorch.sh # PyTorch installation script   
+├── main.py  # Main code   
+├── .env.example # Example configuration file   
+├── data/  # Project data   
+├── fine_tuned_model/  # Output folder for the model   
+   
 ### **Example Data**
 
 Training data is stored in the **data** folder in JSONL format. Example file:
