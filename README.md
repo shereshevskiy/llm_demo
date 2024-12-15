@@ -87,8 +87,8 @@ The training results will be saved in the **fine_tuned_model/** folder.
 
 ### **Project Structure**
 
-```
-llm_demo/   
+```python
+llm_fine_tuning/   
 ├── README.md   # Project description
 ├── docker-compose.yml # Docker Compose configuration
 ├── dockerfile # Dockerfile for building the image   
