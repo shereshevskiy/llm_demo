@@ -89,16 +89,16 @@ The training results will be saved in the **fine_tuned_model/** folder.
 
 ```bash
 llm_fine_tuning/   
-├── README.md   # Project description
-├── docker-compose.yml # Docker Compose configuration
-├── dockerfile # Dockerfile for building the image   
-├── fine_tuned_model/  # Folder for saving results (mounted to the host)   
-├── requirements.txt # Dependencies (excluding PyTorch)   
-├── install_pytorch.sh # PyTorch installation script   
-├── main.py  # Main code   
-├── .env.example # Example configuration file   
-├── data/  # Project data   
-├── fine_tuned_model/  # Output folder for the model   
+├── README.md               # Project description
+├── docker-compose.yml      # Docker Compose configuration
+├── dockerfile              # Dockerfile for building the image   
+├── fine_tuned_model/       # Folder for saving results (mounted to the host)   
+├── requirements.txt        # Dependencies (excluding PyTorch)   
+├── install_pytorch.sh      # PyTorch installation script   
+├── main.py                 # Main code   
+├── .env.example            # Example configuration file   
+├── data/                   # Project data   
+├── fine_tuned_model/       # Output folder for the model   
 ```
 
 ### **Example Data**
