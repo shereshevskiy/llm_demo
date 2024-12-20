@@ -1,4 +1,4 @@
-# ****LLM Fine-Tuning Demo****
+# ****LLM Fine-Tuning****
 
 This project demonstrates the process of fine-tuning large language models (LLMs) on Macs with M1/M2 processors, including the use of PyTorch with MPS (Metal Performance Shaders) support.
 
